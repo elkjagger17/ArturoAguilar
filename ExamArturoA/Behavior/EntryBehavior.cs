@@ -4,7 +4,7 @@ using Xamarin.Forms;
 namespace ExamArturoA.Behavior
 {
     /// <summary>
-    /// Behavior
+    /// Behavior class
     /// </summary>
 	public class EntryBehavior : Behavior<Entry>
     {
