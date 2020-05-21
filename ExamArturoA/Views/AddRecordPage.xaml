@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ExamArturoA.Views.AddRecordPage" xmlns:Behavior="clr-namespace:ExamArturoA.Behavior" Title="{Binding Title}">
+    <ContentPage.Content>
+      <ScrollView VerticalOptions="StartAndExpand" Padding="10">
+            <StackLayout>
+      <Picker x:Name="IndustryTypePicker1" Title="Titulo" SelectedItem="{Binding UserTitle, Mode=OneWayToSource}" HorizontalOptions="FillAndExpand">
+        <Picker.Items>
+            <x:String>Mr.</x:String> 
+            <x:String>Ms.</x:String>
+            <x:String>Mrs.</x:String>  
+            <x:String>Miss</x:String>
+            <x:String>Monsieur</x:String>   
+            <x:String>Mademoiselle</x:String>    
+        </Picker.Items>
+    </Picker> 
+    <Entry Placeholder="Nombre" Text="{Binding First, Mode=OneWayToSource}" x:Name="Entry_One" ReturnType="Next">
+            <Entry.Behaviors>
+               <Behavior:EntryBehavior /> 
+            </Entry.Behaviors>        
+        </Entry>  
+        <Entry Placeholder="Apellido" Text="{Binding Last, Mode=OneWayToSource}" x:Name="Entry_Two" ReturnType="Next">
+            <Entry.Behaviors>
+               <Behavior:EntryBehavior />    
+            </Entry.Behaviors>        
+        </Entry> 
+        <Entry Placeholder="Email" Text="{Binding Email, Mode=OneWayToSource}" x:Name="Entry_Three" ReturnType="Next">
+            <Entry.Behaviors>
+               <Behavior:EntryBehavior /> 
+            </Entry.Behaviors>        
+        </Entry>  
+        <Entry Placeholder="Calle" Text="{Binding Street, Mode=OneWayToSource}" x:Name="Entry_Four" ReturnType="Next">
+            <Entry.Behaviors>
+                <Behavior:EntryBehavior />    
+            </Entry.Behaviors>        
+        </Entry>  
+        <Entry Placeholder="Ciudad" Text="{Binding City, Mode=OneWayToSource}" x:Name="Entry_Five" ReturnType="Next">
+            <Entry.Behaviors>
+              <Behavior:EntryBehavior />       
+            </Entry.Behaviors>        
+        </Entry>  
+        <Entry Placeholder="Pais" Text="{Binding Country, Mode=OneWayToSource}" x:Name="Entry_Six" ReturnType="Next">
+            <Entry.Behaviors>
+               <Behavior:EntryBehavior />      
+            </Entry.Behaviors>        
+        </Entry>  
+        <Entry Placeholder="ZipCode" Text="{Binding ZipCode, Mode=OneWayToSource}" x:Name="Entry_Seven" ReturnType="Done">
+            <Entry.Behaviors>
+              <Behavior:EntryBehavior />       
+            </Entry.Behaviors>        
+        </Entry>  
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Guardar" Clicked="Save_Clicked" HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="Cancelar" Clicked="Cancel_Clicked" HorizontalOptions="FillAndExpand"></Button>
+        </StackLayout>
+               </StackLayout> 
+        </ScrollView>    
+    </ContentPage.Content>
+</ContentPage>

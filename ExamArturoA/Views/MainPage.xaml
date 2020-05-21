@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ExamArturoA.Views.MainPage" xmlns:converter="clr-namespace:ExamArturoA.Converter" Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Agregar"
+                 Order="Primary"
+                 Priority="0"
+                 Clicked="OnItemClicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:TextConverter x:Key="textConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="UsersListView" ItemsSource="{Binding Users}" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>    
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <StackLayout Grid.Row="0" Grid.Column="0">
+                                        <Image Source="{Binding Picture.Thumbnail}" WidthRequest="25"></Image>
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Row="0" Grid.Column="1">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Name, Converter={StaticResource textConverter}}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                            <Label Text="{Binding Email,Converter={StaticResource textConverter} ,ConverterParameter=email }" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                        </StackLayout>
+
+                                        <Label Text="{Binding Location, Converter={StaticResource textConverter}}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell> 
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
